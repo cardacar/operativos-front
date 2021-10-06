@@ -1,20 +1,19 @@
 import React, { Fragment } from "react";
 import { Grid, Typography, Box } from "@mui/material";
-/* import CheckoutCard from "../CheckoutCard/CheckoutCard"; */
-/* import {useStateValue} from '../StateProvider'; */
-/* import Total from './Total' */
-import { Products } from "../../ProductData";
-import Product from '../Product/Product'
+import CheckoutCard from "../CheckoutCard/CheckoutCard";
+import {useStateValue} from '../../StateProvider'; 
+import Total from '../Total/Total';
 
 const CheckoutPage = () => {
-  /* const [{basket}, dispatch] = useStateValue */
+  // eslint-disable-next-line no-unused-vars
+  const [{basket}, dispatch] = useStateValue();
 
   const FormRow = () => {
     return (
       <Fragment>
-        {Products.map((item) => (
+        {basket?.map((item) => (
           <Grid key={item.id} item xs={12} sm={8} md={6} lg={4}>
-            <Product product={item} />
+            <CheckoutCard product={item} />
           </Grid>
         ))}
       </Fragment>
@@ -35,7 +34,7 @@ const CheckoutPage = () => {
           </Grid>
           <Grid item xs={12} sm={4} md={3}>
             <Typography align="center" gutterBottom variant="h4">
-              Total
+              <Total/>
             </Typography>
           </Grid>
         </Grid>

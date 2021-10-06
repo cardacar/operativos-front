@@ -1,12 +1,11 @@
-import React from 'react';
-import CheckoutPage from '../Components/CheckoutPage/CheckoutPage'
+import React from "react";
 
 const Home = () => {
-    return (
-        <div>
-            <CheckoutPage/>
-        </div>
-    )
-}
+  return (
+    <div>
+      <h1>Home Page</h1>
+    </div>
+  );
+};
 
-export default Home
+export default Home;
