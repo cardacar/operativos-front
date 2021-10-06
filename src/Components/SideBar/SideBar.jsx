@@ -11,6 +11,7 @@ import {
   SideBarLink,
   SideBtnWrap,
 } from "./SideBarElement";
+import {Link} from 'react-router-dom'
 
 const SideBar = ({ isOpen, setIsOpen }) => {
   const closeSideBarHandle = () => {
@@ -39,11 +40,13 @@ const SideBar = ({ isOpen, setIsOpen }) => {
           <SideBarLink to="login" onClick={() => closeSideBarHandle()}>
             Perfil
           </SideBarLink>
-          <IconButton>
+          <Link to="checkout">
+          <IconButton onClick={() => closeSideBarHandle()}>
             <Badge badgeContent={2} color="secondary">
               <ShoppingCart color="primary" fontSize="large" />
             </Badge>
           </IconButton>
+          </Link>
         </SideBarMenu>
         <SideBtnWrap>
           <SideBarRoute to="/home" onClick={() => closeSideBarHandle()}>

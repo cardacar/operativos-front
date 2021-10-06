@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SideBar from "../SideBar/SideBar";
-/* import { Link, useHistory } from "react-router-dom"; */
+import { Link /* useHistory */ } from "react-router-dom";
 /* import { useStateValue} from "../StateProvider";
 import { actionTypes} from "../reducer"; */
 import {
@@ -42,15 +42,17 @@ const NavBar = () => {
       <NavMenu>
         <NavLink to="/home">Inicio</NavLink>
         <NavLink to="/products">Productos</NavLink>
-        <NavLink to="/registerExams">Registrar Productos</NavLink>
+        <NavLink to="/registerProduct">Registrar Productos</NavLink>
         <NavLink to="/login">Perfil</NavLink>
       </NavMenu>
       <NavBtn>
+        <Link to="checkout">
         <IconButton>
           <Badge badgeContent={2} color="secondary">
             <ShoppingCartIcon color="primary" fontSize="large" />
           </Badge>
         </IconButton>
+        </Link>
         <NavBtnLink to="/signin">Salir</NavBtnLink>
       </NavBtn>
     </Nav>
