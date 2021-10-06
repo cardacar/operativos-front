@@ -8,10 +8,20 @@ import Typography from "@mui/material/Typography";
 import StarIcon from "@mui/icons-material/Star";
 import Box from "@mui/material/Box";
 import DeleteIcon from "@mui/icons-material/Delete";
+import {useStateValue} from '../../StateProvider';
+import {actionTypes} from '../../reducer'
 
 const CheckoutCard = ({
   product: { id, price, productType, name, rating, image, description },
 }) => {
+  // eslint-disable-next-line no-unused-vars
+  const [{basket}, dispatch] = useStateValue(); 
+  const removeItem = ()=>{
+    dispatch({
+      type: actionTypes.REMOVE_ITEM,
+      id
+    })
+  }
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -39,7 +49,7 @@ const CheckoutCard = ({
               <StarIcon key={i} color="primary" />
             ))}
         </Box>
-        <IconButton>
+        <IconButton onClick={removeItem}>
           <DeleteIcon color="primary" />
         </IconButton>
       </CardActions>

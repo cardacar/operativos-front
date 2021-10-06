@@ -11,9 +11,13 @@ import {
   SideBarLink,
   SideBtnWrap,
 } from "./SideBarElement";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { useStateValue } from "../../StateProvider";
 
 const SideBar = ({ isOpen, setIsOpen }) => {
+  // eslint-disable-next-line no-unused-vars
+  const [{ basket }, dispatch] = useStateValue();
+
   const closeSideBarHandle = () => {
     setIsOpen(!isOpen);
   };
@@ -41,11 +45,11 @@ const SideBar = ({ isOpen, setIsOpen }) => {
             Perfil
           </SideBarLink>
           <Link to="checkout">
-          <IconButton onClick={() => closeSideBarHandle()}>
-            <Badge badgeContent={2} color="secondary">
-              <ShoppingCart color="primary" fontSize="large" />
-            </Badge>
-          </IconButton>
+            <IconButton onClick={() => closeSideBarHandle()}>
+              <Badge badgeContent={basket?.length} color="secondary">
+                <ShoppingCart color="primary" fontSize="large" />
+              </Badge>
+            </IconButton>
           </Link>
         </SideBarMenu>
         <SideBtnWrap>

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import SideBar from "../SideBar/SideBar";
 import { Link /* useHistory */ } from "react-router-dom";
-/* import { useStateValue} from "../StateProvider";
-import { actionTypes} from "../reducer"; */
+import { useStateValue } from "../../StateProvider";
+/*import { actionTypes} from "../reducer"; */
 import {
   Bars,
   Nav,
@@ -18,9 +18,10 @@ const NavBar = () => {
   const isOpenClick = () => {
     setIsOpen(!isOpen);
   };
+  // eslint-disable-next-line no-unused-vars
+  const [{ basket }, dispatch] = useStateValue();
 
-  /* const [{bascket, user}, dispatch] = useStateValue
-    const history = useHistory(); */
+  /*const history = useHistory(); */
 
   /* const hanldeAuth = ()=>{
         if(user){
@@ -38,6 +39,7 @@ const NavBar = () => {
         <h1>Logo</h1>
       </NavLink>
       <Bars onClick={() => isOpenClick()} />
+
       <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
       <NavMenu>
         <NavLink to="/home">Inicio</NavLink>
@@ -47,11 +49,11 @@ const NavBar = () => {
       </NavMenu>
       <NavBtn>
         <Link to="checkout">
-        <IconButton>
-          <Badge badgeContent={2} color="secondary">
-            <ShoppingCartIcon color="primary" fontSize="large" />
-          </Badge>
-        </IconButton>
+          <IconButton>
+            <Badge badgeContent={basket?.length} color="secondary">
+              <ShoppingCartIcon color="primary" fontSize="large" />
+            </Badge>
+          </IconButton>
         </Link>
         <NavBtnLink to="/signin">Salir</NavBtnLink>
       </NavBtn>
