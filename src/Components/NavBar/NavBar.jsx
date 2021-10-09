@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import SideBar from "../SideBar/SideBar";
-import { Link /* useHistory */ } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useStateValue } from "../../StateProvider";
-/*import { actionTypes} from "../reducer"; */
+import { actionTypes } from "../../reducer";
 import {
   Bars,
   Nav,
@@ -10,29 +10,35 @@ import {
   NavBtnLink,
   NavLink,
   NavMenu,
+  LogOutBtn,
 } from "./NavBarElement";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Badge, IconButton } from "@mui/material";
+
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isOpenClick = () => {
     setIsOpen(!isOpen);
   };
   // eslint-disable-next-line no-unused-vars
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
 
-  /*const history = useHistory(); */
+  const history = useHistory();
 
-  /* const hanldeAuth = ()=>{
-        if(user){
-            auth.signOut();
-            dispatch({
-                type: actionTypes.EMPTY_BASKET,
-                basket: [],
-            });
-            history.push("/")
-        }
-    } */
+  const hanldeAuth = () => {
+    if (user) {
+      window.localStorage.removeItem("token");
+      dispatch({
+        type: actionTypes.EMPTY_BASKET,
+        basket: [],
+      });
+      dispatch({
+        type: actionTypes.SET_USER,
+        user: null,
+      });
+      history.push("/");
+    }
+  };
   return (
     <Nav>
       <NavLink to="/">
@@ -44,8 +50,13 @@ const NavBar = () => {
       <NavMenu>
         <NavLink to="/home">Inicio</NavLink>
         <NavLink to="/products">Productos</NavLink>
-        <NavLink to="/registerProduct">Registrar Productos</NavLink>
-        <NavLink to="/login">Perfil</NavLink>
+        {user? (
+          <Fragment>
+
+            <NavLink to="/registerProduct">Registrar Productos</NavLink>
+            <NavLink to="/login">Perfil</NavLink>
+          </Fragment>
+        ):null}
       </NavMenu>
       <NavBtn>
         <Link to="checkout">
@@ -55,7 +66,12 @@ const NavBar = () => {
             </Badge>
           </IconButton>
         </Link>
-        <NavBtnLink to="/signin">Salir</NavBtnLink>
+        {user ? (
+          <LogOutBtn onClick={hanldeAuth}>LogOut</LogOutBtn>
+        ) : (
+          <NavBtnLink to="/signin">Login</NavBtnLink>
+        )}
+        {/* <NavBtnLink to="/signin">Login</NavBtnLink> */}
       </NavBtn>
     </Nav>
   );

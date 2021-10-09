@@ -1,6 +1,7 @@
 import { styled } from "@mui/material/styles";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link  } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export const SideBarContainer = styled("aside")(({ theme, isopen }) => ({
   position: "fixed",
@@ -67,6 +68,26 @@ export const SideBtnWrap = styled("div")(({ theme }) => ({
 }));
 
 export const SideBarRoute = styled(Link)(({ theme }) => ({
+  borderRadius: "50px",
+  background: "#01bf71",
+  whiteSpace: "nowrap",
+  padding: "10px 64px",
+  color: "#010606",
+  fontSize: "16px",
+  outline: "none",
+  border: "none",
+  cursor: "pointer",
+  transition: "all 0.2s ease-in-out",
+  textDecoration: "none",
+
+  "&:hover": {
+    transition: "all 0.2s ease-in-out",
+    background: "#fff",
+    color: "#010606",
+  },
+}));
+
+export const SideBarRouteLogOut = styled(Button)(({ theme }) => ({
   borderRadius: "50px",
   background: "#01bf71",
   whiteSpace: "nowrap",

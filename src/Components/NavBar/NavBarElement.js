@@ -1,6 +1,7 @@
 import { styled } from "@mui/material/styles";
 import { NavLink as Link } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
+import { Button } from "@mui/material";
 
 export const Nav = styled("nav")(({ theme }) => ({
   background: "#000",
@@ -77,4 +78,23 @@ export const NavBtnLink = styled(Link)(({theme})=>({
         color: '#010606',
         
     }
+}))
+
+export const LogOutBtn = styled(Button)(({theme})=>({
+  borderRadius: '4px',
+  background: '#256ce1',
+  padding: '10px 22px',
+  color: '#fff',
+  border: 'none',
+  outline: 'none',
+  cursor: 'pointer',
+  transition: 'all 0.2s ease-in-out',
+  textDecoration: 'none',
+
+  '&:hover':{
+      transition:'all 0.2s ease-in-out',
+      background: '#fff',
+      color: '#010606',
+      
+  }
 }))
