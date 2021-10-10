@@ -27,7 +27,6 @@ const productColumn = [
   { id: "name", label: "Nombre" },
   { id: "price", label: "Precio" },
   { id: "stock", label: "Stock" },
-  { id: "category", label: "Categoria" },
   { id: "actions", label: "Acciones" },
 ];
 
@@ -133,7 +132,6 @@ const AdminPage = () => {
                     <TableCell>{data.name}</TableCell>
                     <TableCell>{data.price}</TableCell>
                     <TableCell>{data.stock}</TableCell>
-                    <TableCell>{data.category}</TableCell>
                     <TableCell>
                       <Button
                         color="primary"
