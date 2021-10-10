@@ -67,8 +67,8 @@ const useTable = (data, headCells, filterFn) => {
       rowsPerPageOptions={pages}
       rowsPerPage={rowsPerPage}
       count={data.length}
-      onChangePage={changePage}
-      onChangeRowsPerPage={changeRowsPerPage}
+      onPageChange={changePage}
+      onRowsPerPageChange={changeRowsPerPage}
     />
   );
   function stableSort(array, comparator) {

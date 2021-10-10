@@ -53,7 +53,7 @@ const NavBar = () => {
         {user? (
           <Fragment>
 
-            <NavLink to="/registerProduct">Registrar Productos</NavLink>
+            <NavLink to="/admin">Registrar Productos</NavLink>
             <NavLink to="/login">Perfil</NavLink>
           </Fragment>
         ):null}

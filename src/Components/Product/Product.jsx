@@ -13,7 +13,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import StarIcon from "@mui/icons-material/Star";
 import {useStateValue} from '../../StateProvider';
 import {actionTypes} from '../../reducer'
-
+import Coffe from "../../assets/coffe.jpg";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -27,7 +27,7 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function Product({
-  product: { id, price, productType, name, rating, image, description },
+  product: { id, price,stock, code, name, description },
 }) {
   const [expanded, setExpanded] = useState(false);
   // eslint-disable-next-line no-unused-vars
@@ -36,16 +36,24 @@ export default function Product({
     setExpanded(!expanded);
   };
 
+
+
+  /* code: "",
+  name: "",
+  description: "",
+  imgReference: "",
+  category: 0,
+  price: 0,
+  stock: 0, */
   const addToBasket = ()=>{
     dispatch({
       type: actionTypes.ADD_TO_BASKET,
       item:{
         id,
         name,
-        productType,
-        image,
+        productType:code,
+        image: Coffe,
         price,
-        rating,
         description,
       }
     })
@@ -64,12 +72,12 @@ export default function Product({
           </Typography>
         }
         title={name}
-        subheader="En stock"
+        subheader={stock}
       />
-      <CardMedia component="img" height="194" image={image} alt="Coffe" />
+      <CardMedia component="img" height="194" image={Coffe} alt="Coffe" />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {productType}
+          {code}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -77,7 +85,7 @@ export default function Product({
           <AddShoppingCart />
         </IconButton>
         <IconButton aria-label="rating">
-          {Array(rating)
+          {Array(4)
             .fill()
             .map((_, i) => (
               <StarIcon key={i} color="primary" />

@@ -4,6 +4,8 @@ import {Route, Switch} from 'react-router-dom'
 import Home from './Pages/Home';
 import ProductGrid from './Components/ProductGrid/ProductGrid'
 import CheckoutPage from './Components/CheckoutPage/CheckoutPage'
+import Checkout from './Pages/CheckoutPage/Checkout'
+import AdminPage from './Pages/AdminPage'
 import SignIn from './Pages/SignIn';
 import { useEffect } from 'react';
 import {useStateValue} from './StateProvider';
@@ -15,7 +17,6 @@ function App() {
 
   useEffect(() => {
     const token = window.localStorage.getItem('token');
-    console.log(token)
     if(token && token!==''){
       dispatch({
         type: actionTypes.SET_USER,
@@ -32,6 +33,8 @@ function App() {
         <Route path="/home" exact component={Home}/>
         <Route path="/products" exact component={ProductGrid}/>
         <Route path="/checkout" exact component={CheckoutPage}/>
+        <Route path="/Total" exact component={Checkout}/>
+        <Route path="/admin" exact component={AdminPage}/>
         <Route path="/signin" exact component={SignIn}/>
       </Switch>
     </div>

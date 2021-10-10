@@ -57,7 +57,7 @@ const SideBar = ({ isOpen, setIsOpen }) => {
           {user ? (
             <Fragment>
               <SideBarLink
-                to="registerExams"
+                to="admin"
                 onClick={() => closeSideBarHandle()}
               >
                 Registrar Productos

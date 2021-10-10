@@ -34,7 +34,6 @@ const SignIn = () => {
       });
       history.push("/products");
     }
-    console.log(newData);
   };
 
   return (
