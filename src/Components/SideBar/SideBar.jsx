@@ -52,7 +52,7 @@ const SideBar = ({ isOpen, setIsOpen }) => {
             Inicio
           </SideBarLink>
           <SideBarLink to="products" onClick={() => closeSideBarHandle()}>
-            Productos
+            Tienda
           </SideBarLink>
           {user ? (
             <Fragment>
@@ -62,9 +62,7 @@ const SideBar = ({ isOpen, setIsOpen }) => {
               >
                 Registrar Productos
               </SideBarLink>
-              <SideBarLink to="login" onClick={() => closeSideBarHandle()}>
-                Perfil
-              </SideBarLink>
+              
             </Fragment>
           ) : null}
           <Link to="checkout">

@@ -42,19 +42,19 @@ const NavBar = () => {
   return (
     <Nav>
       <NavLink to="/">
-        <h1>Logo</h1>
+        <h1>Coffe</h1>
       </NavLink>
       <Bars onClick={() => isOpenClick()} />
 
       <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
       <NavMenu>
         <NavLink to="/home">Inicio</NavLink>
-        <NavLink to="/products">Productos</NavLink>
+        <NavLink to="/products">Tienda</NavLink>
         {user? (
           <Fragment>
 
             <NavLink to="/admin">Registrar Productos</NavLink>
-            <NavLink to="/login">Perfil</NavLink>
+            
           </Fragment>
         ):null}
       </NavMenu>
