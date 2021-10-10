@@ -27,6 +27,8 @@ const AddProduct = (props) => {
     if(edit){
       putProductAxios(data);
     }else{
+      let newCategory = data.category
+      data.category= parseInt(newCategory, 10)
       createProductAxios(data);
 
     }
