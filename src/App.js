@@ -41,7 +41,7 @@ function App() {
         <Route path="/admin" exact component={AdminPage} />
         <Route path="/signin" exact component={SignIn} />
       </Switch>
-      <Link href="https://wa.link/ty1x5p">
+      <Link href="https://api.whatsapp.com/send?phone=573103969682&text=Gracias">
       
       <Fab
         aria-label="add"
