@@ -18,7 +18,7 @@ const Home = () => {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundImage: `url(${coffeFondo})`,
-          height: "92vh",
+          height: "87.2vh",
         }}
       >
         <Box
