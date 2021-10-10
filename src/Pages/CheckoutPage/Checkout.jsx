@@ -61,13 +61,19 @@ export default function Checkout() {
       cardNumber: "",
       expDate: "",
       cvv: "",
-      products: basket,
+      invoiceItems: basket,
     },
   });
 
   const handleSubmit = (data) => {
     if (activeStep === steps.length) {
-      createBilling(data).then((res) => {
+      let newData = {
+        description: data.firstName,
+        customerId: data.customerId,
+        invoiceItems: data.invoiceItems
+
+      }
+      createBilling(newData).then((res) => {
         if (res.status === 200) {
           history.push("/");
         }
