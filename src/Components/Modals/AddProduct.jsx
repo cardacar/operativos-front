@@ -28,7 +28,11 @@ const AddProduct = (props) => {
       putProductAxios(data);
     }else{
       let newCategory = data.category
+      let newPrice = data.price
+      let newStock = data.stock
       data.category= parseInt(newCategory, 10)
+      data.price = parseInt(newPrice, 10)
+      data.stock = parseInt(newStock, 10)
       createProductAxios(data);
 
     }
